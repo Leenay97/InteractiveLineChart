@@ -1,73 +1,143 @@
-# React + TypeScript + Vite
+# 📊 InteractiveLineChart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Demo:**
+👉 [https://leenay97.github.io/InteractiveLineChart/](https://leenay97.github.io/InteractiveLineChart/)
 
-Currently, two official plugins are available:
+Interactive Line Chart for visualizing A/B test statistics based on `data.json`.
+The app displays **conversion rates** for each variation, allows toggling lines, switching between day/week data, changing line style, using light/dark theme, and exporting the chart as PNG.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Built with **React + TypeScript** and deployed on **GitHub Pages**.
 
-## React Compiler
+---
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+## ✨ Features
 
-## Expanding the ESLint configuration
+### 🔹 Core Functionality
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Display **conversion rate (%)** for all variations.
+* **Day / Week toggle**:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  * **Day** — daily data
+  * **Week** — weekly averages automatically calculated
+* **Variation selector**:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+  * At least one variation is always active
+  * Graph axes adjust automatically when variations are toggled
+* Fully **responsive layout** (671px — 1300px)
+* **Hover effect**:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+  * Vertical guide line
+  * Custom tooltip with sorted variation values
+
+### 🔹 Bonus Features (implemented)
+
+* **Line style selector**: choose between Line, Smooth (monotone), and Area
+* **Light / Dark theme toggle**
+* **Export chart to PNG**
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology             | Usage                                      |
+| ---------------------- | ------------------------------------------ |
+| **React + TypeScript** | Core application logic                     |
+| **Recharts**           | Lines, axes, tooltips, chart customization |
+| **CSS Modules / SCSS** | Component styling                          |
+| **GitHub Pages**       | Deployment                                 |
+
+---
+
+## 📦 Installation & Local Development
+
+```bash
+# 1. Clone repository
+git clone https://github.com/leenay97/InteractiveLineChart.git
+
+# 2. Go to project directory
+cd InteractiveLineChart
+
+# 3. Install dependencies
+npm install
+
+# 4. Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open in your browser:
+👉 [http://localhost:5173](http://localhost:5173)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Deploy to GitHub Pages
+
+The project is already deployed, but to redeploy:
+
+```bash
+npm run build
+npm run deploy
 ```
+
+Deployment uses **gh-pages** branch.
+
+---
+
+## 📁 Project Structure
+
+```
+InteractiveLineChart/
+│
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Chart/
+│   │   ├── OptionPanel/
+│   │   ├── CustomTooltip/
+│   │   └── ...
+│   ├── contexts/
+│   ├── types/
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── App.css
+│
+├── data.json
+├── package.json
+└── README.md
+```
+
+---
+
+## 📊 Conversion Rate Calculation
+
+```ts
+conversionRate = (conversions / visits) * 100;
+```
+
+All values are displayed as percentages with two decimal places.
+
+---
+
+## 📱 Responsive Layout
+
+* Fully responsive for **screens between 671px and 1300px**
+* Tooltip and control panel adapt for smaller screens
+* Chart scaling and scrolling work responsively
+
+---
+
+## 💡 Visualization Library
+
+**Recharts** is used because:
+
+* Easy and fast integration
+* Support for custom tooltips, lines, and areas
+* Handles large datasets efficiently
+* Flexible styling
+
+---
+
+## 🎨 Bonus Features
+
+* **Light / Dark theme toggle**
+* **Export chart to PNG**
+* **Line style selector** (Line, Smooth, Area)
