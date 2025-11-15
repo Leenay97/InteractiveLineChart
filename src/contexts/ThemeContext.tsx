@@ -1,4 +1,4 @@
-import { Children, createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import type { Theme, ThemeContextType } from "../types/types";
 
 const ThemeContext = createContext<ThemeContextType | null>(null)

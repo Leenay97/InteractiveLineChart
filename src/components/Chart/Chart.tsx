@@ -3,7 +3,7 @@ import type { ChartProps } from '../../types/types';
 import './Chart.scss'
 
 import CustomTooltip from '../CustomTooltip/CustomToolTip';
-import { useCallback, useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 
 const Chart = ({ data, variations, line}: ChartProps) => {

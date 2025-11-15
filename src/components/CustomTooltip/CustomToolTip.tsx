@@ -1,9 +1,8 @@
 import './CustomTooltip.scss'
 import type { TooltipPayloadItem } from '../../types/types';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef} from 'react';
 
 const CustomTooltip = ({ active, payload, label }: any) => {
-    const [scrollTop, setScrollTop] = useState(0);
     const scrollContainerRef = useRef<HTMLUListElement>(null);
 
     let filteredPayload = []
@@ -18,11 +17,12 @@ const CustomTooltip = ({ active, payload, label }: any) => {
                 const container = scrollContainerRef.current;
                 const maxScroll = container.scrollHeight - container.clientHeight;
 
-                setScrollTop(prev => {
-                    const newScrollTop = Math.max(0, Math.min(maxScroll, prev + e.deltaY));
-                    container.scrollTop = newScrollTop;
-                    return newScrollTop;
-                });
+                const newScrollTop = Math.max(
+                    0,
+                    Math.min(maxScroll, container.scrollTop + e.deltaY)
+                );
+                container.scrollTop = newScrollTop;
+                return newScrollTop;
             }
         };
 
