@@ -1,0 +1,47 @@
+.graph-wrapper {
+    display: flex;
+
+    width: 100%;
+    height: 400px;
+
+    .y-axis-wrapper {
+        width: 60px;
+        flex-shrink: 0;
+    }
+
+    .chart-scroll-container {
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .recharts-tooltip-wrapper .recharts-tooltip-wrapper-left .recharts-tooltip-wrapper-bottom {
+        border-radius: 6px;
+
+
+    }
+
+    .chart-scroll-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+
+    .chart-scroll-container::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .chart-scroll-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    .chart-scroll-container::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+    }
+
+    .chart-scroll-container::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+    }
+}
